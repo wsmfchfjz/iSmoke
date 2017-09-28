@@ -1,0 +1,207 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@drawable/home_bg">
+
+    <!-- header for alert page -->
+
+    <RelativeLayout
+        android:id="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/red_oven">
+
+        <ImageButton
+            android:id="@+id/fromAlertToHomeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:src="@drawable/icon_back"
+            android:background="@null"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Alert"
+            android:textSize="@dimen/common_title_top"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <!-- main page -->
+
+    <TextView
+        android:id="@+id/alertTexts"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="You will get an alert when the temperature is
+higher than the alert temperature."
+        android:layout_below="@+id/headerMain"
+        android:layout_margin="20dp"
+        android:textSize="16sp" />
+
+    <!-- group 1 -->
+    <LinearLayout
+        android:id="@+id/group1"
+        android:layout_below="@+id/alertTexts"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:padding="0dp"
+        android:background="@drawable/alert_set_bg"
+        android:orientation="vertical">
+
+        <!-- top -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/labelA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="48sp"
+                android:textColor="@color/green_oven"
+                android:text="1"
+                android:layout_marginLeft="40dp"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/temA"
+                android:layout_alignTop="@+id/labelA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="48sp"
+                android:textColor="@color/green_oven"
+                android:text="0"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp" />
+
+            <TextView
+                android:id="@+id/temLabelA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/green_oven"
+                android:text="℉"
+                android:layout_alignEnd="@+id/temA"
+                android:layout_alignTop="@+id/temA"
+                android:layout_marginRight="-20dp"
+                android:layout_marginTop="4dp" />
+
+        </RelativeLayout>
+
+        <!-- bottom -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <SeekBar
+                android:id="@+id/seekA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_centerVertical="true"
+                android:maxHeight="10dp"
+                android:minHeight="10dp"
+                android:max="200"
+                android:progress="0"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:progressDrawable="@drawable/seekbar_drawable"
+                android:thumb="@drawable/seek_thumb"
+                android:thumbOffset="2.0dp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <!-- group 2 -->
+    <LinearLayout
+        android:id="@+id/group2"
+        android:layout_below="@+id/group1"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="10dp"
+        android:padding="0dp"
+        android:background="@drawable/alert_set_bg"
+        android:orientation="vertical">
+
+        <!-- top -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/labelB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="48sp"
+                android:textColor="@color/yellow_oven"
+                android:text="2"
+                android:layout_marginLeft="40dp"
+                android:layout_centerVertical="true" />
+
+            <TextView
+                android:id="@+id/temB"
+                android:layout_alignTop="@+id/labelB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="48sp"
+                android:textColor="@color/yellow_oven"
+                android:text="0"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="60dp" />
+
+            <TextView
+                android:id="@+id/temLabelB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textColor="@color/yellow_oven"
+                android:text="℉"
+                android:layout_alignEnd="@+id/temB"
+                android:layout_alignTop="@+id/temB"
+                android:layout_marginRight="-20dp"
+                android:layout_marginTop="4dp" />
+
+        </RelativeLayout>
+
+        <!-- bottom -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+
+            <SeekBar
+                android:id="@+id/seekB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_centerVertical="true"
+                android:maxHeight="10dp"
+                android:minHeight="10dp"
+                android:max="200"
+                android:progress="0"
+                android:layout_centerHorizontal="true"
+                android:paddingLeft="2dp"
+                android:paddingRight="2dp"
+                android:progressDrawable="@drawable/seekbar_drawable"
+                android:thumb="@drawable/seek_thumb"
+                android:thumbOffset="2.0dp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

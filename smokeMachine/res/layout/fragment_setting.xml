@@ -1,0 +1,201 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:paddingBottom="5dp"
+    android:background="@drawable/home_bg">
+
+    <!-- header for setting page -->
+    <RelativeLayout
+        android:id="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/red_oven">
+
+        <ImageButton
+            android:id="@+id/fromSettingToHomeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:src="@drawable/icon_back" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Settings"
+            android:textSize="@dimen/common_title_top"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <!-- on off group -->
+    <RelativeLayout
+        android:id="@+id/groupOnOff"
+        android:layout_below="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/button_light_gray_round"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="Temperature Unit"
+            android:textSize="20sp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp" />
+
+        <ImageView
+            android:id="@+id/iv_temperature_unit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/more_button_of"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="12dp"
+            android:clickable="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moreGroup1"
+        android:layout_below="@+id/groupOnOff"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/more_button_bg"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="@dimen/setting_button_top_1"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/moreText1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Bradley Home"
+            android:drawableLeft="@drawable/more_button_icon1"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moreGroup2"
+        android:layout_below="@+id/moreGroup1"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/more_button_bg"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/moreText2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Owner's Manual"
+            android:drawableLeft="@drawable/more_button_icon2"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moreGroup3"
+        android:layout_below="@+id/moreGroup2"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/more_button_bg"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true">
+
+        <TextView
+            android:id="@+id/moreText3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Recipe Book"
+            android:drawableLeft="@drawable/more_button_icon3"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:layout_centerInParent="true" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moreGroup4"
+        android:layout_below="@+id/moreGroup3"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/more_button_bg"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/moreText4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Contact us"
+            android:drawableLeft="@drawable/icon_phone"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/setting_button_left" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/moreGroup5"
+        android:layout_below="@+id/moreGroup4"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/more_button_bg"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <TextView
+            android:id="@+id/moreText5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:text="Email"
+            android:drawableLeft="@drawable/icon_email"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/setting_button_left" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_version"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="@dimen/common_title_top"
+        android:textColor="@color/white"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp" />
+</RelativeLayout>

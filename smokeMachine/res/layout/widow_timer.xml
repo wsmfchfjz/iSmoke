@@ -1,0 +1,151 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/window_timer_height"
+    android:background="#151515">
+
+    <!-- main frame -->
+
+    <ImageView
+        android:id="@+id/line_top"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#707070" />
+
+    <RelativeLayout
+        android:id="@+id/timerGroupTop"
+        android:layout_below="@+id/line_top"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="0dp">
+
+        <ImageButton
+            android:id="@+id/timerCloseBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/timer_close"
+            android:background="@null"
+            android:layout_centerVertical="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+        <ImageButton
+            android:id="@+id/timerOkBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/timer_ok"
+            android:background="@null"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:text="Set Time"
+            android:textColor="@color/white"
+            android:layout_centerInParent="true"
+            android:gravity="center" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/line_middle"
+        android:layout_below="@+id/timerGroupTop"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#707070" />
+
+    <!-- main content:  -->
+    <LinearLayout
+        android:id="@+id/timerGroupBottom"
+        android:layout_below="@+id/line_middle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        android:padding="0dp">
+
+        <!-- left: hour-->
+        <RelativeLayout
+            android:id="@+id/bottomLeftHour"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0"
+            android:padding="0dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/red_oven"
+                android:layout_centerVertical="true" />
+
+            <com.ai.android.picker.NumberPicker
+                android:id="@+id/timerHourPicker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="h"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="18sp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="42dp" />
+
+        </RelativeLayout>
+
+        <!-- right: minute-->
+        <RelativeLayout
+            android:id="@+id/bottomRightMinute"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.0">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:background="@color/red_oven"
+                android:layout_centerVertical="true" />
+
+            <com.ai.android.picker.NumberPicker
+                android:id="@+id/timerMinutePicker"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_centerInParent="true" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="min"
+                android:textColor="@color/white"
+                android:layout_centerInParent="true"
+                android:textSize="18sp"
+                android:paddingBottom="4dp"
+                android:paddingLeft="62dp" />
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/line_center"
+        android:layout_below="@+id/line_middle"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:background="#707070" />
+
+</RelativeLayout>

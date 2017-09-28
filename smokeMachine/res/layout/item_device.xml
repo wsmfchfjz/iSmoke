@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/deviceItemSample"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/frame_light_gray_round"
+        android:layout_below="@+id/deviceListLabel"
+        android:text="Bradley Bluetooth Smoker"
+        android:textColor="@color/dark_gray_oven"
+        android:textSize="19sp"
+        android:gravity="center_vertical"
+        android:paddingLeft="15dp"
+        android:drawableRight="@drawable/icon_jian"
+        android:paddingRight="15dp" />
+    
+</LinearLayout>

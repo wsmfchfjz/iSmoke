@@ -1,0 +1,37 @@
+<resources>
+    <dimen name="home_frame_height">290dp</dimen>
+    <dimen name="home_circle_size">230dp</dimen>
+    <dimen name="home_circle_size2">240dp</dimen>
+    <integer name="home_seekbar_time_textSize">40</integer>
+    <integer name="home_seekbar_textSize">50</integer>
+    <integer name="home_seekbar_radius">15</integer>
+    <integer name="home_seekbar_width">11</integer>
+    <dimen name="home_circle_temperature_top">150dp</dimen>
+    <dimen name="home_circle_temperature_textSize">14sp</dimen>
+    <dimen name="home_circle_temperature_unitTop">80dp</dimen>
+    <dimen name="home_circle_temperature_unitTop_margin_left">-8dp</dimen>
+    <dimen name="home_action_start">40dp</dimen>
+    <dimen name="home_action_start_bottom">4dp</dimen>
+
+    <dimen name="tv_f_120_top">270dp</dimen>
+    <dimen name="tv_f_120_right">-74dp</dimen>
+    <dimen name="tv_f_320_top">270dp</dimen>
+    <dimen name="tv_f_320_right">-80dp</dimen>
+    <dimen name="tv_f_150_top">208dp</dimen>
+    <dimen name="tv_f_180_top">115dp</dimen>
+    <dimen name="tv_f_240_top">66dp</dimen>
+    <dimen name="tv_f_270_top">146dp</dimen>
+    <dimen name="tv_f_300_top">245dp</dimen>
+
+    <dimen name="tv_c_50_top">270dp</dimen>
+    <dimen name="tv_c_70_top">180dp</dimen>
+    <dimen name="tv_c_90_top">73dp</dimen>
+    <dimen name="tv_c_110_top">-15dp</dimen>
+    <dimen name="tv_c_130_top">141dp</dimen>
+    <dimen name="tv_c_150_top">240dp</dimen>
+
+    <!-- setting -->
+    <dimen name="setting_button_left">60dp</dimen>
+    <dimen name="setting_button_top_1">50dp</dimen>
+
+</resources>

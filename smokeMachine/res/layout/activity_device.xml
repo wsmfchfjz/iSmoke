@@ -1,0 +1,29 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/device_bg">
+    <!-- header for alert page -->
+    <RelativeLayout
+        android:id="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        android:background="@color/red_oven">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Device"
+            android:textSize="@dimen/common_title_top"
+            android:layout_centerInParent="true"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <FrameLayout
+        android:id="@+id/deviceFrame"
+        android:layout_below="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

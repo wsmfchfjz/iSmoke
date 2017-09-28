@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:clickable="false"
+    android:focusable="false"
+    android:gravity="center_vertical"
+    android:orientation="horizontal" >
+
+    <com.ai.android.picker.NumberPicker
+        android:id="@+id/time_hours"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/labelHour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center"
+        android:text="h"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+    <com.ai.android.picker.NumberPicker
+        android:id="@+id/time_minutes"
+        android:layout_marginLeft="50dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/labelMinute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|center"
+        android:text="min"
+        android:textColor="@android:color/white"
+        android:textSize="15sp" />
+
+</LinearLayout>

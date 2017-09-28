@@ -1,0 +1,57 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null"
+    android:gravity="center">
+
+    <!-- main content -->
+    <RelativeLayout
+        android:id="@+id/blueToothNotice"
+        android:layout_centerInParent="true"
+        android:layout_width="match_parent"
+        android:layout_height="158dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/frame_light_gray_round">
+
+        <TextView
+            android:id="@+id/blueToothTips"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/dark_gray_oven"
+
+            android:text="Turn on Bluetooth to Allow “Bradley App” to Connect to Accessories"
+            android:lineSpacingMultiplier="1.2"
+            android:layout_margin="24dp"
+            android:textSize="17sp" />
+
+        <LinearLayout
+            android:id="@+id/btnGroupBottom"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:layout_alignParentBottom="true">
+
+            <Button
+                android:id="@+id/jumpSettingsBtn"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Settings"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/button_red_round_left" />
+
+            <Button
+                android:id="@+id/cancelBtn"
+                android:layout_width="0dp"
+                android:layout_marginLeft="1dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Cancel"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/button_red_round_right" />
+
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

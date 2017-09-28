@@ -1,0 +1,42 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@null">
+
+    <!-- main content -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+
+        <TextView
+            android:id="@+id/selectLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Please choose your device"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:layout_centerHorizontal="true" />
+
+        <TextView
+            android:id="@+id/deviceListLabel"
+            android:layout_below="@+id/selectLabel"
+            android:layout_margin="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Device List"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/deviceListLabel"
+            android:listSelector="@android:color/transparent"
+            android:background="@android:color/transparent" />
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

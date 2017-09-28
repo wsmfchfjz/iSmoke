@@ -1,0 +1,1389 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_bg"
+    android:paddingBottom="5dp"
+    tools:context=".MainActivity" >
+
+    <!-- header for home -->
+
+    <RelativeLayout
+        android:id="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/red_oven" >
+
+        <ImageButton
+            android:id="@+id/toSettingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/icon_more" />
+
+        <ImageButton
+            android:id="@+id/toChart"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/icon_chart" />
+    </RelativeLayout>
+
+    <!-- frame upper -->
+
+    <LinearLayout
+        android:id="@+id/frameUpper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerMain"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/home_kuang1"
+        android:orientation="horizontal" >
+
+        <!-- group left -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/setTemLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Set temperature:"
+                android:visibility="gone"
+                android:textColor="@color/white" />
+            
+            <TextView
+                android:id="@+id/setTemValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/setTemLabel"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/setTemLabel"
+                android:visibility="gone"
+                android:text="0"
+                android:textColor="@color/yellow_oven" />
+            
+            <TextView
+                android:id="@+id/setTemValueUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/setTemValue"
+                android:layout_toRightOf="@+id/setTemValue"
+                android:visibility="gone"
+                android:text="℃"
+                android:textColor="@color/yellow_oven" />
+            
+            <TextView
+                android:id="@+id/currentTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="48sp" />
+
+            <TextView
+                android:id="@+id/currentTemperatureUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/currentTemperature"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/currentTemperature"
+                android:text="℉"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/currentTemperature"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="-6dp"
+                android:text="Current temperature"
+                android:textColor="@color/gray_oven" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/home_line" />
+
+        <!-- group right -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/smokerTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/smokerLabel"
+                android:layout_marginTop="10dp"
+                android:text="00 : 00 : 00"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/smokerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/smokerTime"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@drawable/home_icon_settime"
+                android:drawablePadding="4dp"
+                android:text="Smoker time"
+                android:textColor="@color/gray_oven"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/ovenTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/smokerLabel"
+                android:layout_below="@+id/smokerLabel"
+                android:layout_marginTop="8dp"
+                android:text="00 : 00 : 00"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/ovenLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/smokerLabel"
+                android:layout_below="@+id/ovenTime"
+                android:drawableLeft="@drawable/home_icon_settime"
+                android:drawablePadding="4dp"
+                android:text="Oven time"
+                android:textColor="@color/gray_oven"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/img_home_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/home_logo" />
+
+    <LinearLayout
+        android:id="@+id/btnGroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/frameUpper"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="14dp"
+        android:orientation="horizontal" >
+
+        <RadioGroup
+            android:id="@+id/rgOvenSmoke"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/ovenModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_button_oven"
+                android:button="@null"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/smokerModule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_button_smoke"
+                android:button="@null" />
+
+            <RadioButton
+                android:id="@+id/rbtn_probe"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/home_button_probe"
+                android:button="@null" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <!-- frame probe 探针界面    by jeff -->
+
+    <RelativeLayout
+        android:id="@+id/frameProbe"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_frame_height"
+        android:layout_below="@+id/btnGroup"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="-7dp"
+        android:background="@drawable/home_kuang1"
+        android:orientation="horizontal"
+        android:padding="0dp"
+        android:visibility="invisible" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:orientation="horizontal" >
+
+                    <!-- checkbox left -->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <CheckBox
+                            android:id="@+id/cb_probe1_on_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:button="@drawable/check_box_on_off" />
+
+                        <TextView
+                            android:id="@+id/tv_probe1_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@id/cb_probe1_on_off"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="12dp"
+                            android:text="Off"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_probe1_on"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@id/cb_probe1_on_off"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="13dp"
+                            android:text="On"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="Probe1"
+                            android:textColor="#28ff4a"
+                            android:textSize="16sp" />
+                        <!-- 橙色 f9b552 -->
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7" >
+
+                    <ImageView
+                        android:id="@+id/img_probe1_line_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/alert_set1" />
+
+                    <ImageView
+                        android:id="@+id/img_probe1_line_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/line2" />
+
+                    <Button
+                        android:id="@+id/btn_probe1_arrow_top"
+                        android:layout_width="14dp"
+                        android:layout_height="8dp"
+                        android:layout_below="@id/img_probe1_line_top"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/icon_jian1"
+                        android:visibility="invisible" />
+
+                    <Button
+                        android:id="@+id/btn_probe1_arrow_bottom"
+                        android:layout_width="14dp"
+                        android:layout_height="8dp"
+                        android:layout_above="@id/img_probe1_line_bottom"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="4dp"
+                        android:background="@drawable/icon_jian2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@id/btn_probe1_arrow_bottom"
+                        android:layout_below="@id/btn_probe1_arrow_top"
+                        android:orientation="horizontal" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="7" >
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlt_probe1_viewpager_direction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5" >
+
+                            <ganguo.oven.view.DirectionalViewPager.VerticalViewPager
+                                android:id="@+id/viewpager_direction_probe1"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:overScrollMode="never" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="7" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical" >
+
+                                <Button
+                                    android:id="@+id/btn_probe1_0_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginTop="4dp"
+                                    android:background="@drawable/icon_dian1" />
+
+                                <Button
+                                    android:id="@+id/btn_probe1_1_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+
+                                <Button
+                                    android:id="@+id/btn_probe1_2_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+
+                                <Button
+                                    android:id="@+id/btn_probe1_3_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+                                
+                                <Button
+                                    android:id="@+id/btn_probe1_4_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <ganguo.oven.view.InterceptEventView
+                        android:id="@+id/interceptEvent_probe1_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#70000000"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+
+                            <RelativeLayout
+                                android:id="@+id/rlt_probe1_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" >
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true" >
+
+                                    <TextView
+                                        android:id="@+id/tv_probe1_1_word"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Medium rare"
+                                        android:textColor="#ffffff"
+                                        android:textSize="17sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_probe1_1_num"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/tv_probe1_1_word"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="-2dp"
+                                        android:text="63℃/145℉"
+                                        android:textColor="#999999"
+                                        android:textSize="11sp" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rlt_probe1_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="@drawable/alert_set1" />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true" >
+
+                                    <TextView
+                                        android:id="@+id/tv_probe1_2_word"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Medium"
+                                        android:textColor="#ffffff"
+                                        android:textSize="17sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_probe1_2_num"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/tv_probe1_2_word"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="-2dp"
+                                        android:text="71℃/160℉"
+                                        android:textColor="#999999"
+                                        android:textSize="11sp" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rlt_probe1_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="invisible"
+                                android:layout_weight="1" >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="@drawable/alert_set1" />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true" >
+
+                                    <TextView
+                                        android:id="@+id/tv_probe1_3_word"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Well done"
+                                        android:textColor="#ffffff"
+                                        android:textSize="17sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_probe1_3_num"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/tv_probe1_3_word"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="-2dp"
+                                        android:text="77℃/170℉"
+                                        android:textColor="#999999"
+                                        android:textSize="11sp" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <ganguo.oven.view.InterceptEventView
+                        android:id="@+id/interceptEvent_probe1_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#70000000"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical" >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="9"
+                    android:orientation="horizontal" >
+
+                    <!-- checkbox left -->
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <CheckBox
+                            android:id="@+id/cb_probe2_on_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:button="@drawable/check_box_on_off" />
+
+                        <TextView
+                            android:id="@+id/tv_probe2_off"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignLeft="@id/cb_probe2_on_off"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="12dp"
+                            android:text="Off"
+                            android:textColor="@color/black"
+                            android:textSize="13sp" />
+
+                        <TextView
+                            android:id="@+id/tv_probe2_on"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignRight="@id/cb_probe2_on_off"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="13dp"
+                            android:text="On"
+                            android:textColor="@color/white"
+                            android:textSize="13sp"
+                            android:visibility="invisible" />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1" >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="Probe2"
+                            android:textColor="#f9b552"
+                            android:textSize="16sp" />
+                    </RelativeLayout>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="7" >
+
+                    <ImageView
+                        android:id="@+id/img_probe2_line_top"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/alert_set1" />
+
+                    <ImageView
+                        android:id="@+id/img_probe2_line_bottom"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="@drawable/line2" />
+
+                    <Button
+                        android:id="@+id/btn_probe2_arrow_top"
+                        android:layout_width="14dp"
+                        android:layout_height="8dp"
+                        android:layout_below="@id/img_probe2_line_top"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="4dp"
+                        android:background="@drawable/icon_jian1"
+                        android:visibility="invisible" />
+
+                    <Button
+                        android:id="@+id/btn_probe2_arrow_bottom"
+                        android:layout_width="14dp"
+                        android:layout_height="8dp"
+                        android:layout_above="@id/img_probe2_line_bottom"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginBottom="4dp"
+                        android:background="@drawable/icon_jian2" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_above="@id/btn_probe2_arrow_bottom"
+                        android:layout_below="@id/btn_probe2_arrow_top"
+                        android:orientation="horizontal" >
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="7" >
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/rlt_probe2_viewpager_direction"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="5" >
+
+                            <ganguo.oven.view.DirectionalViewPager.VerticalViewPager
+                                android:id="@+id/viewpager_direction_probe2"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:overScrollMode="never" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="7" >
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:orientation="vertical" >
+
+                                <Button
+                                    android:id="@+id/btn_probe2_0_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian1" />
+
+                                <Button
+                                    android:id="@+id/btn_probe2_1_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+
+                                <Button
+                                    android:id="@+id/btn_probe2_2_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+
+                                <Button
+                                    android:id="@+id/btn_probe2_3_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+                                
+                                <Button
+                                    android:id="@+id/btn_probe2_4_of_viewpage"
+                                    android:layout_width="8dp"
+                                    android:layout_height="8dp"
+                                    android:layout_marginBottom="3dp"
+                                    android:layout_marginTop="3dp"
+                                    android:background="@drawable/icon_dian2" />
+                            </LinearLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
+                    <ganguo.oven.view.InterceptEventView
+                        android:id="@+id/interceptEvent_probe2_1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#70000000"
+                        android:visibility="gone" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6" >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent" >
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="vertical" >
+
+                            <RelativeLayout
+                                android:id="@+id/rlt_probe2_1"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" >
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true" >
+
+                                    <TextView
+                                        android:id="@+id/tv_probe2_1_word"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Medium rare"
+                                        android:textColor="#ffffff"
+                                        android:textSize="17sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_probe2_1_num"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/tv_probe2_1_word"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="-2dp"
+                                        android:text="63℃/145℉"
+                                        android:textColor="#999999"
+                                        android:textSize="11sp" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rlt_probe2_2"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1" >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="@drawable/alert_set1" />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true" >
+
+                                    <TextView
+                                        android:id="@+id/tv_probe2_2_word"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Medium"
+                                        android:textColor="#ffffff"
+                                        android:textSize="17sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_probe2_2_num"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/tv_probe2_2_word"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="-2dp"
+                                        android:text="71℃/160℉"
+                                        android:textColor="#999999"
+                                        android:textSize="11sp" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+
+                            <RelativeLayout
+                                android:id="@+id/rlt_probe2_3"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:visibility="invisible"
+                                android:layout_weight="1" >
+
+                                <ImageView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:layout_marginLeft="30dp"
+                                    android:layout_marginRight="30dp"
+                                    android:background="@drawable/alert_set1" />
+
+                                <RelativeLayout
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerInParent="true" >
+
+                                    <TextView
+                                        android:id="@+id/tv_probe2_3_word"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_centerHorizontal="true"
+                                        android:text="Well done"
+                                        android:textColor="#ffffff"
+                                        android:textSize="17sp" />
+
+                                    <TextView
+                                        android:id="@+id/tv_probe2_3_num"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_below="@id/tv_probe2_3_word"
+                                        android:layout_centerHorizontal="true"
+                                        android:layout_marginTop="-2dp"
+                                        android:text="77℃/170℉"
+                                        android:textColor="#999999"
+                                        android:textSize="11sp" />
+                                </RelativeLayout>
+                            </RelativeLayout>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <ganguo.oven.view.InterceptEventView
+                        android:id="@+id/interceptEvent_probe2_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="4dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:background="#70000000"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="14dp"
+            android:layout_marginTop="14dp"
+            android:background="@drawable/myqqline" />
+    </RelativeLayout>
+
+    <!-- frame lower 圆圈控件，即烧烤圆圈界面和烟熏圆圈界面  -->
+
+    <RelativeLayout
+        android:id="@+id/frameCircle"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_frame_height"
+        android:layout_below="@+id/btnGroup"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="-7dp"
+        android:background="@drawable/home_kuang1"
+        android:padding="0dp"
+        android:visibility="visible" >
+
+        <!-- time right -->
+
+        <TextView
+            android:id="@+id/remainedTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/set_time"
+            android:gravity="center"
+            android:paddingRight="45dp"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+
+        <!-- time label -->
+
+        <TextView
+            android:id="@+id/remainedTimeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/remainedTime"
+            android:layout_alignRight="@+id/remainedTime"
+            android:layout_marginBottom="3dp"
+            android:layout_marginRight="10dp"
+            android:text="Time"
+            android:textColor="@color/white"
+            android:textSize="13sp" />
+
+        <!-- checkbox left -->
+
+        <RelativeLayout
+            android:id="@+id/view_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="-10dp"
+            android:visibility="gone" >
+
+            <!-- circle group -->
+
+            <RelativeLayout
+                android:id="@+id/circleTimeGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" >
+
+                <ImageView
+                    android:id="@+id/iv_time_bg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bg_circle_time" />
+
+                <!-- circle seekbar -->
+
+                <com.tufan.library.TufanCircleSeekBar
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/seekbar_settingTime"
+                    android:layout_width="@dimen/home_circle_size"
+                    android:layout_height="@dimen/home_circle_size"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="5dp"
+                    app:angle_end="140"
+                    app:angle_start="-150"
+                    app:format_to_time="true"
+                    app:init_progress="20"
+                    app:max="580"
+                    app:pointer_color="@color/home_seekbar_pointer_enable"
+                    app:pointer_halo_color="@color/home_seekbar_pointer_enable"
+                    app:pointer_halo_radius="@integer/home_seekbar_radius"
+                    app:pointer_radius="@integer/home_seekbar_radius"
+                    app:text_color="#FFFFFF"
+                    app:text_size="@integer/home_seekbar_time_textSize"
+                    app:wheel_active_color="@color/home_seekbar_active_enable"
+                    app:wheel_second_active_color="@color/home_seekbar_active_enable"
+                    app:wheel_stroke_width="@integer/home_seekbar_width"
+                    app:wheel_unactive_color="@color/home_seekbar_unactive_enable" />
+
+                <TextView
+                    android:id="@+id/currentTimeLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/home_circle_temperature_top"
+                    android:text="Set Time"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/home_circle_temperature_textSize" />
+            </RelativeLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/view_temp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:visibility="visible" >
+
+            <!-- circle group -->
+
+            <RelativeLayout
+                android:id="@+id/circleGroup"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true" >
+
+                <ImageView
+                    android:layout_width="@dimen/home_circle_size"
+                    android:layout_height="@dimen/home_circle_size"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/home_set_yuan1" />
+
+                <!-- circle seekbar -->
+
+                <com.tufan.library.TufanCircleSeekBar
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/seekbar_settingTemperature"
+                    android:layout_width="@dimen/home_circle_size"
+                    android:layout_height="@dimen/home_circle_size"
+                    android:layout_centerInParent="true"
+                    android:layout_marginBottom="5dp"
+                    app:angle_end="150"
+                    app:angle_start="-150"
+                    app:init_progress="0"
+                    app:max="110"
+                    app:pointer_color="@color/home_seekbar_pointer_enable"
+                    app:pointer_halo_color="@color/home_seekbar_pointer_enable"
+                    app:pointer_halo_radius="@integer/home_seekbar_radius"
+                    app:pointer_radius="@integer/home_seekbar_radius"
+                    app:text_color="#FFFFFF"
+                    app:text_size="@integer/home_seekbar_textSize"
+                    app:wheel_active_color="@color/home_seekbar_active_enable"
+                    app:wheel_second_active_color="@color/home_seekbar_active_enable"
+                    app:wheel_stroke_width="@integer/home_seekbar_width"
+                    app:wheel_unactive_color="@color/home_seekbar_unactive_enable" />
+
+                <TextView
+                    android:id="@+id/currentTemLabel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="@dimen/home_circle_temperature_top"
+                    android:text="Set Temperature"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/home_circle_temperature_textSize" />
+
+                <TextView
+                    android:id="@+id/setttingTemperatureUnit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/home_circle_temperature_unitTop_margin_left"
+                    android:layout_marginTop="@dimen/home_circle_temperature_unitTop"
+                    android:layout_toRightOf="@+id/currentTemLabel"
+                    android:text="℉"
+                    android:textColor="@color/white"
+                    android:textSize="20sp" />
+            </RelativeLayout>
+
+            <!-- 150F -->
+
+            <TextView
+                android:id="@+id/tv_f_150"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-6dp"
+                android:layout_marginTop="@dimen/tv_f_150_top"
+                android:layout_toLeftOf="@+id/circleGroup"
+                android:text="150"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 70C -->
+
+            <TextView
+                android:id="@+id/tv_c_70"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="0dp"
+                android:layout_marginTop="@dimen/tv_c_70_top"
+                android:layout_toLeftOf="@+id/circleGroup"
+                android:text="70"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <!-- 120F -->
+
+            <TextView
+                android:id="@+id/tv_f_120"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="@dimen/tv_f_120_right"
+                android:layout_marginTop="@dimen/tv_f_120_top"
+                android:layout_toLeftOf="@+id/circleGroup"
+                android:text="120"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 50C -->
+
+            <TextView
+                android:id="@+id/tv_c_50"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-74dp"
+                android:layout_marginTop="@dimen/tv_c_50_top"
+                android:layout_toLeftOf="@+id/circleGroup"
+                android:text="50"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <!-- 180F -->
+
+            <TextView
+                android:id="@+id/tv_f_180"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-10dp"
+                android:layout_marginTop="@dimen/tv_f_180_top"
+                android:layout_toLeftOf="@+id/circleGroup"
+                android:text="180"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 90C -->
+
+            <TextView
+                android:id="@+id/tv_c_90"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="-40dp"
+                android:layout_marginTop="@dimen/tv_c_90_top"
+                android:layout_toLeftOf="@+id/circleGroup"
+                android:text="90"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <!-- 210F -->
+
+            <TextView
+                android:id="@+id/tv_f_210"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/circleGroup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="-5dp"
+                android:paddingRight="70dp"
+                android:text="210"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 110C -->
+
+            <TextView
+                android:id="@+id/tv_c_110"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/circleGroup"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/tv_c_110_top"
+                android:paddingLeft="70dp"
+                android:text="110"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <!-- 240F -->
+
+            <TextView
+                android:id="@+id/tv_f_240"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-52dp"
+                android:layout_marginTop="@dimen/tv_f_240_top"
+                android:layout_toRightOf="@+id/circleGroup"
+                android:text="240"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 270F -->
+
+            <TextView
+                android:id="@+id/tv_f_270"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="@dimen/tv_f_270_top"
+                android:layout_toRightOf="@+id/circleGroup"
+                android:text="270"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 130C -->
+
+            <TextView
+                android:id="@+id/tv_c_130"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="@dimen/tv_c_130_top"
+                android:layout_toRightOf="@+id/circleGroup"
+                android:text="130"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <!-- 300F -->
+
+            <TextView
+                android:id="@+id/tv_f_300"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-24dp"
+                android:layout_marginTop="@dimen/tv_f_300_top"
+                android:layout_toRightOf="@+id/circleGroup"
+                android:text="300"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 150C -->
+
+            <TextView
+                android:id="@+id/tv_c_150"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-24dp"
+                android:layout_marginTop="@dimen/tv_c_150_top"
+                android:layout_toRightOf="@+id/circleGroup"
+                android:text="150"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp"
+                android:visibility="gone" />
+
+            <!-- 320F -->
+
+            <TextView
+                android:id="@+id/tv_f_320"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/tv_f_320_right"
+                android:layout_marginTop="@dimen/tv_f_320_top"
+                android:layout_toRightOf="@+id/circleGroup"
+                android:text="320"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp" />
+
+            <!-- 160C -->
+
+            <TextView
+                android:id="@+id/tv_c_160"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-78dp"
+                android:layout_marginTop="@dimen/tv_c_50_top"
+                android:layout_toRightOf="@+id/circleGroup"
+                android:text="160"
+                android:textColor="@color/gray_oven"
+                android:textSize="12sp"
+                android:visibility="gone" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <!-- text group bottom -->
+
+    <RelativeLayout
+        android:id="@+id/textGroupBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
+
+        <TextView
+            android:id="@+id/homeTextBottom1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Meat Prober 1 / 2 :"
+            android:textColor="@color/red_oven" />
+
+        <TextView
+            android:id="@+id/currentTemperatureA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/homeTextBottom1"
+            android:text="0℉"
+            android:textColor="@color/green_oven" />
+
+        <TextView
+            android:id="@+id/currentTemperatureB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/currentTemperatureA"
+            android:text=" / 0℉"
+            android:textColor="@color/yellow_oven" />
+
+        <Button
+            android:id="@+id/toAlertBtn"
+            android:layout_width="96dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_red_abs_angle"
+            android:drawableLeft="@drawable/home_icon_alert"
+            android:drawablePadding="-14dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="Alert"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <CheckBox
+        android:id="@+id/actionStart"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/home_action_start"
+        android:layout_above="@+id/textGroupBottom"
+        android:layout_marginBottom="@dimen/home_action_start_bottom"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_red_round"
+        android:button="@null"
+        android:gravity="center"
+        android:text="Start"
+        android:textColor="@color/white"
+        android:textSize="18sp" />
+
+</RelativeLayout>

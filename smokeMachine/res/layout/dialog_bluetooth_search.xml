@@ -1,0 +1,26 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/bluetooth_seach_height"
+    android:background="@drawable/device_tip_bg">
+
+    <ImageView
+        android:id="@+id/refreshIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/device_tip_icon_refresh"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp" />
+
+
+    <TextView
+        android:id="@+id/searchTips"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:text="Searching for device…"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="24dp"
+        android:layout_alignParentBottom="true"
+        android:textSize="17sp" />
+
+</RelativeLayout>

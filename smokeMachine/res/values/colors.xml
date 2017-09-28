@@ -1,0 +1,23 @@
+<resources>
+
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="dark_gray_oven">#5c5c5c</color>
+    <color name="gray2_oven">#818181</color>
+    <color name="gray_oven">#a8a8a8</color>
+    <color name="light_gray_oven">#e5e5e5</color>
+    <color name="red_oven">#d2232a</color>
+    <color name="yellow_oven">#f9c129</color>
+    <color name="light_yellow_oven">#fff2b3</color>
+    <color name="green_oven">#26f648</color>
+    <color name="blue_oven">#00b6ed</color>
+
+    <color name="home_seekbar_pointer_enable">#f9c129</color>
+    <color name="home_seekbar_pointer_disable">#5c5b60</color>
+
+    <color name="home_seekbar_unactive_enable">#d6d6d6</color>
+    <color name="home_seekbar_unactive_disable">#626264</color>
+
+    <color name="home_seekbar_active_enable">#d2232a</color>
+    <color name="home_seekbar_active_disable">#313236</color>
+</resources>

@@ -1,0 +1,380 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/home_bg"
+    android:paddingBottom="5dp"
+    tools:context=".MainActivity" >
+
+    <!-- header for home -->
+
+    <RelativeLayout
+        android:id="@+id/headerMain"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:background="@color/red_oven" >
+
+        <ImageButton
+            android:id="@+id/toSettingsBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/icon_more" />
+
+        <ImageButton
+            android:id="@+id/toHomeBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@null"
+            android:paddingLeft="16dp"
+            android:paddingRight="16dp"
+            android:src="@drawable/icon_back" />
+    </RelativeLayout>
+
+    <!-- frame upper -->
+
+    <LinearLayout
+        android:id="@+id/frameUpper"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/headerMain"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
+        android:background="@drawable/home_kuang1"
+        android:orientation="horizontal" >
+
+        <!-- group left -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/setTemLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="Set temperature:"
+                android:visibility="gone"
+                android:textColor="@color/white" />
+
+            <TextView
+                android:id="@+id/setTemValue"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/setTemLabel"
+                android:layout_marginLeft="3dp"
+                android:layout_toRightOf="@+id/setTemLabel"
+                android:text="0"
+                android:visibility="gone"
+                android:textColor="@color/yellow_oven" />
+
+            <TextView
+                android:id="@+id/setTemValueUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/setTemValue"
+                android:layout_toRightOf="@+id/setTemValue"
+                android:visibility="gone"
+                android:text="℉"
+                android:textColor="@color/yellow_oven" />
+
+            <TextView
+                android:id="@+id/currentTemperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="48sp" />
+
+            <TextView
+                android:id="@+id/currentTemperatureUnit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/currentTemperature"
+                android:layout_marginLeft="3dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/currentTemperature"
+                android:text="℃"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/currentTemperature"
+                android:layout_centerHorizontal="true"
+                android:text="Current temperature"
+                android:textColor="@color/gray_oven" />
+        </RelativeLayout>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/home_line" />
+
+        <!-- group right -->
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/smokerTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/smokerLabel"
+                android:layout_marginTop="10dp"
+                android:text="00 : 00"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/smokerLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/smokerTime"
+                android:layout_centerHorizontal="true"
+                android:drawableLeft="@drawable/home_icon_settime"
+                android:drawablePadding="4dp"
+                android:text="Smoker time"
+                android:textColor="@color/gray_oven"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/ovenTime"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/smokerLabel"
+                android:layout_below="@+id/smokerLabel"
+                android:layout_marginTop="8dp"
+                android:text="00 : 00"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/ovenLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/smokerLabel"
+                android:layout_below="@+id/ovenTime"
+                android:drawableLeft="@drawable/home_icon_settime"
+                android:drawablePadding="4dp"
+                android:text="Oven time"
+                android:textColor="@color/gray_oven"
+                android:textSize="13sp" />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/home_logo" />
+
+    <!-- frame lower -->
+
+    <RelativeLayout
+        android:id="@+id/frameCircle"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:layout_below="@+id/frameUpper"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/home_kuang1"
+        android:padding="0dp" >
+
+        <!-- checkbox group -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/checkBoxA"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:button="@null"
+                android:checked="true"
+                android:drawableLeft="@drawable/checkbox_style"
+                android:drawablePadding="5dp"
+                android:padding="0dp"
+                android:text="Probe1"
+                android:textColor="@color/green_oven"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/green_line" />
+
+            <CheckBox
+                android:id="@+id/checkBoxB"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:button="@null"
+                android:checked="true"
+                android:drawableLeft="@drawable/checkbox_style"
+                android:drawablePadding="5dp"
+                android:padding="0dp"
+                android:text="Probe2"
+                android:textColor="@color/yellow_oven"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/yellow_line" />
+
+            <CheckBox
+                android:id="@+id/checkBoxBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:button="@null"
+                android:checked="true"
+                android:drawableLeft="@drawable/checkbox_style"
+                android:drawablePadding="5dp"
+                android:padding="0dp"
+                android:text="Oven"
+                android:textColor="@color/blue_oven"
+                android:textSize="14sp" />
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="10dp"
+                android:layout_marginLeft="3dp"
+                android:background="@drawable/blue_line" />
+        </LinearLayout>
+
+        <!-- chart -->
+        <!--
+             <it.bradipao.lib.descharts.XyChartView
+            android:id="@+id/ovenChart"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:background="@color/red_oven"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="38dp" />
+        -->
+
+        <ganguo.oven.view.NoScrollViewPager
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="20dp"
+            android:layout_marginRight="38dp"
+            android:layout_marginLeft="2dp"
+            android:overScrollMode="never" />
+
+        <TextView
+            android:id="@+id/chartLabelTem"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/viewpager"
+            android:layout_marginLeft="24dp"
+            android:text="℉"
+            android:textColor="@color/white" />
+
+        <TextView
+            android:id="@+id/chartLabelTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/viewpager"
+            android:layout_marginBottom="12dp"
+            android:layout_marginLeft="-34dp"
+            android:layout_toRightOf="@+id/viewpager"
+            android:text="min"
+            android:textColor="@color/white" />
+    </RelativeLayout>
+
+    <!-- text group bottom -->
+
+    <RelativeLayout
+        android:id="@+id/textGroupBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" >
+
+        <TextView
+            android:id="@+id/homeTextBottom1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Meat Prober 1 / 2 :"
+            android:textColor="@color/red_oven" />
+
+        <TextView
+            android:id="@+id/currentTemperatureA"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_toRightOf="@+id/homeTextBottom1"
+            android:text="0℃"
+            android:textColor="@color/green_oven" />
+
+        <TextView
+            android:id="@+id/currentTemperatureB"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/currentTemperatureA"
+            android:text=" / 0℃"
+            android:textColor="@color/yellow_oven" />
+
+        <Button
+            android:id="@+id/toAlertBtn"
+            android:layout_width="96dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/button_red_abs_angle"
+            android:drawableLeft="@drawable/home_icon_alert"
+            android:drawablePadding="-14dp"
+            android:gravity="center"
+            android:paddingLeft="10dp"
+            android:text="Alert"
+            android:textColor="@color/white"
+            android:textSize="17sp" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/stopBtn"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_above="@+id/textGroupBottom"
+        android:layout_marginBottom="14dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/button_red_round"
+        android:text="Stop"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        android:visibility="gone" />
+
+</RelativeLayout>
