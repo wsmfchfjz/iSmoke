@@ -35,6 +35,7 @@ import de.greenrobot.event.EventBus;
  * Created by Tony on 1/18/15.
  */
 public class BleService extends Service {
+	public static boolean isNewDevice = true;
 	public static final String TAG = "testLog";
 	private static final long WORK_DELAYER = 2000;
 	private int currentapiVersion = android.os.Build.VERSION.SDK_INT;
@@ -47,7 +48,7 @@ public class BleService extends Service {
 	private boolean mScanning = false;
 	private boolean mConnected = false;
 	private boolean isConnect = false;
-	private boolean isCommandDelayer = false;
+	private boolean stopReceiveData = false;
 
 	private BluetoothGattCharacteristic mNotifyCharacteristic;
 	private BluetoothGattCharacteristic mWriteCharacteristic;
@@ -123,6 +124,18 @@ public class BleService extends Service {
 
 	public void connectToDevice(BluetoothDevice mDevice) {
 		Log.e("testLog", "connectToDevice");
+		
+//		if(mDevice.getName() != null && mDevice.getName().startsWith(Constants.DEVICE_NAME)){//旧设备
+//			isNewDevice = false;
+//		} else {
+//			isNewDevice = true;
+//		}
+		
+		if (isNewDevice) {
+			mBluetoothGatt = mDevice.connectGatt(this, false, mGattCallback);
+			return ;
+		}
+		
 		if (currentapiVersion < 21) {
 			mBluetoothGatt = mDevice.connectGatt(this, true, mGattCallback);
 		} else {
@@ -207,7 +220,7 @@ public class BleService extends Service {
 	Runnable commandDelayer = new Runnable() {
 		@Override
 		public void run() {
-			isCommandDelayer = false;
+			stopReceiveData = false;
 		}
 	};
 
@@ -219,7 +232,7 @@ public class BleService extends Service {
 		boolean isNotCloseSmoke = setting.getCommand() != DeviceCommand.SMOKER_SWITCH && setting.getCommandData() != 0;//不是关闭烟熏
 		
 		if(setting.getCommand() != DeviceCommand.CONNECTED){//因为发送配对成功命令后，需要得到探针报警温度命令，所以这时不要延时接收命令
-			isCommandDelayer = true;
+			stopReceiveData = true;
 		} 
 
 		mWriteCharacteristic.setValue(setting.toBytes());
@@ -232,7 +245,7 @@ public class BleService extends Service {
 		if(setting.getCommand() != DeviceCommand.CONNECTED){
 			mHandler.removeCallbacks(commandDelayer);
 			if(isNotCloseOven && isNotCloseSmoke){
-				mHandler.postDelayed(commandDelayer, 1500);
+				mHandler.postDelayed(commandDelayer, 1500);//将isCommandDelayers负值为false
 			} else {
 				mHandler.postDelayed(commandDelayer, 300);
 			}
@@ -341,8 +354,9 @@ public class BleService extends Service {
 				// 获取服务失败，可能不是oven设备0
 				if (!initCharacteristic())
 					return;
-
+				Log.i(TAG, "initCharacteristic suc");
 				BleUtils.enableNotification(gatt, mNotifyCharacteristic);
+				Log.i(TAG, "enableNotification suc");
 				mEventBus.post(new BleEvent(BleCommand.SERVICES_DISCOVERED,
 						mBluetoothGatt));
 
@@ -353,6 +367,7 @@ public class BleService extends Service {
 								mBluetoothGatt));
 					}
 				}, WORK_DELAYER);
+				Log.i(TAG, "postDelayed suc");
 			} else {
 				Log.w(TAG, "onServicesDiscovered received: " + status);
 			}
@@ -366,7 +381,7 @@ public class BleService extends Service {
 		@Override
 		public void onCharacteristicChanged(BluetoothGatt gatt,
 				BluetoothGattCharacteristic characteristic) {
-			if (characteristic.getProperties() != BluetoothGattCharacteristic.PROPERTY_NOTIFY)
+			if (!isNewDevice && characteristic.getProperties() != BluetoothGattCharacteristic.PROPERTY_NOTIFY)
 				return;
 			ByteUtils.printArrayList("receiveData:", characteristic.getValue());
 			receiveBytes(characteristic.getValue());
@@ -378,7 +393,7 @@ public class BleService extends Service {
 
 	private void receiveBytes(byte[] values) {
 		// 发送命令时延时接收数据
-		if (isCommandDelayer)
+		if (stopReceiveData)
 			return;
 
 		if (values == null)

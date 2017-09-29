@@ -16,6 +16,6 @@ public class DeviceCommand {
     public static final byte PROBE_TEMPERATURE_B = 0x09;    // 设置温度探头B--食物温度目标值	用于食物温度目标值，当达到食物目标温度-5F时提示
     public static final byte CONNECTED = 0x0A;    // 配对成功	App获得控制权限后发送
     public static final byte MEAT = 0x0b;    // 肉类
-    public static final byte REQUEST_PWD = 0x0F;    // APP启动时，请求控制器发送登录密码,同时控制器显示密码
+//    public static final byte REQUEST_PWD = 0x0F;    // APP启动时，请求控制器发送登录密码,同时控制器显示密码
 
 }

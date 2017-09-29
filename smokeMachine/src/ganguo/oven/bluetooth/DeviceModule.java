@@ -226,11 +226,11 @@ public class DeviceModule {
     /**
      * APP启动时，请求控制器发送登录密码,同时控制器显示密码
      */
-    public static void requestPassword() {
-        SettingData setting = AppContext.getInstance().getSettingData();
-        setting.setCommand(DeviceCommand.REQUEST_PWD);
-        mEventBus.post(new BleEvent(BleCommand.SETTING_COMMAND, setting));
-    }
+//    public static void requestPassword() {
+//        SettingData setting = AppContext.getInstance().getSettingData();
+//        setting.setCommand(DeviceCommand.REQUEST_PWD);
+//        mEventBus.post(new BleEvent(BleCommand.SETTING_COMMAND, setting));
+//    }
 
     /**
      * APP启动时，请求控制器发送登录密码,同时控制器显示密码
